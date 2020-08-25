@@ -390,7 +390,7 @@ func (output *OutputPlugin) setGroupStreamNames(e *Event) {
 	}
 
 	logrus.Errorf("[cloudwatch %d] parsing template: '%s': %v", output.PluginInstanceID, output.logGroupName, err)
-aaa
+
 	if e.group == "" {
 		e.group = output.logGroupName
 	}

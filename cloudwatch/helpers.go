@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/valyala/fasttemplate"
+	"github.com/sirupsen/logrus"
 )
 
 // tagKeysToMap converts a raw string into a go map.
@@ -71,6 +72,8 @@ func parseDataMapTags(e *Event, logTags []string, template string) (string, erro
 	}
 
 	return t.ExecuteFuncStringWithErr(func(w io.Writer, tag string) (int, error) {
+		logrus.Infof("tagtagtagtag %s\n", tag)
+
 		v := strings.Index(tag, "[")
 		if v == -1 {
 			v = len(tag)

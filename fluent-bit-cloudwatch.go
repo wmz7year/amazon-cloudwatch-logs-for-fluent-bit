@@ -133,7 +133,7 @@ func FLBPluginFlushCtx(ctx, data unsafe.Pointer, length C.int, tag *C.char) int 
 	cloudwatchLogs := getPluginInstance(ctx)
 
 	fluentTag := C.GoString(tag)
-	logrus.Errorf("[cloudwatch %d] Found logs with tag: %s", cloudwatchLogs.PluginInstanceID, fluentTag)
+	logrus.Debugf("[cloudwatch %d] Found logs with tag: %s", cloudwatchLogs.PluginInstanceID, fluentTag)
 
 	for {
 		// Extract Record

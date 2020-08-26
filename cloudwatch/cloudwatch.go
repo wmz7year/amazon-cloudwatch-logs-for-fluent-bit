@@ -384,9 +384,6 @@ func (output *OutputPlugin) setGroupStreamNames(e *Event) {
 	// This happens here to avoid running Split more than once per log Event.
 	logTagSplit := strings.SplitN(e.Tag, ".", 10)
 
-	logrus.Errorf("[cloudwatch '%s'", e.Tag)
-
-
 	var err error
 	if e.group, err = parseDataMapTags(e, logTagSplit, output.logGroupName); err != nil {
 		logrus.Errorf("[cloudwatch %d] parsing template: '%s': %v", output.PluginInstanceID, output.logGroupName, err)
